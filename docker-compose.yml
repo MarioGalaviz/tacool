@@ -1,0 +1,27 @@
+version: '3'
+services:
+    nginx:
+        container_name: tacool-nginx-1
+        restart: always
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./nginx
+        ports:
+            - '3050:80'
+        depends_on:
+            - site
+        logging:
+            driver: none
+    site:
+        container_name: tacool-site-1
+        stdin_open: true
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./site
+        volumes:
+            - /app/node_modules
+            - ./site:/app
+
+    
+
+
