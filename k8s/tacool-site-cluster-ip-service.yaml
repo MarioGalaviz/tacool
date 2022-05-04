@@ -8,4 +8,4 @@ spec:
     - port: 3006
       targetPort: 3006
   selector:
-    component: tacool-site
+    site: tacool

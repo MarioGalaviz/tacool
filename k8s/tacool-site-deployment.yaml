@@ -6,11 +6,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      component: tacool-site
+      site: tacool
   template:
     metadata:
       labels:
-        component: tacool-site
+        site: tacool
     spec:
       containers:
         - name: site
