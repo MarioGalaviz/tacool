@@ -1,0 +1,62 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tacool-ingress-service
+  annotations:
+    kubernetes.io/ingress.class: 'nginx'
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/affinity-mode: 'persistent'
+    nginx.ingress.kubernetes.io/affinity: 'cookie'
+    nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "7200"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "7200"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "7200"
+spec:
+  tls:
+    - hosts:
+        - tacool.mx
+        - www.tacool.mx
+      secretName: tacool-mx
+  rules:
+    - host: tacool.mx
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: tacool-site-cluster-ip-service
+                port:
+                  number: 3006
+          - path: /api/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: api-cluster-ip-service
+                port:
+                  number: 3002
+    - host: www.tacool.mx
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: tacool-site-cluster-ip-service
+                port:
+                  number: 3006
+          - path: /api/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: api-cluster-ip-service
+                port:
+                  number: 3002
+
+
+
+                  

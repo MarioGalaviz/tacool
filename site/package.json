@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -p 3006",
+    "lint": "next lint",
+    "test": "jest --env=jsdom"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -17,7 +18,11 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
     "eslint": "8.14.0",
-    "eslint-config-next": "12.1.6"
+    "eslint-config-next": "12.1.6",
+    "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2"
   }
 }

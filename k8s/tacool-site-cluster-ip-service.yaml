@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tacool-site-cluster-ip-service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3006
+      targetPort: 3006
+  selector:
+    component: web
