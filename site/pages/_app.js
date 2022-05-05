@@ -11,14 +11,14 @@ function MyApp({ Component, pageProps }) {
         palette: {
             type: 'light',
             primary: {
-                main: '#FFA000',
+                main: '#8656ac',
             },
             secondary: {
-                main: '#005eff',
+                main: '#7dac56',
             },
             background: {
-                default: '#fff8e1',
-                paper: '#b9deff',
+                default: '#ede7f3',
+                paper: '#d3c3e1',
             },
         },
         typography: {

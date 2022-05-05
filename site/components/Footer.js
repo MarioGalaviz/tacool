@@ -8,7 +8,7 @@ function Footer() {
 
     return (
         <Box className="footer" display='flex' alignItems='center' justifyContent='right' sx={{ backgroundColor: 'primary.main', height: '12vh', width: '100%' }}>
-            <Typography sx={{ m: 2.5 }} onClick={() => router.push('/privacidad')} variant="h6" align='center'>Aviso de privacidad</Typography>
+            <Typography sx={{ m: 2.5, color: 'white' }} onClick={() => router.push('/privacidad')} variant="h6" align='center'>Aviso de privacidad</Typography>
         </Box>
     )
 }
