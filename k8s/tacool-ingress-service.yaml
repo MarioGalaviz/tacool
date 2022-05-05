@@ -20,6 +20,7 @@ spec:
     - hosts:
         - tacool.mx
         - www.tacool.mx
+        - app.tacool.mx
       secretName: tacool-mx
   rules:
     - host: tacool.mx
