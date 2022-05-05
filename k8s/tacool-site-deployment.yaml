@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: tacool-site-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       site: tacool
